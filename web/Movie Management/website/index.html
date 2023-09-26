@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Management</title>
+    <link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <header>
+
+        <div class="container">
+          <div class="logo">
+            <a href="index.html">
+              <img src="assets/logo.png" alt="Logo">
+            </a>
+          </div>
+
+          <nav>
+            <ul class="nav-links">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="addMovie.html">Add Movie</a></li>
+
+              <li class="searchBar">
+                <div class="inputContainer">
+                    <input type="text" placeholder="Search for Movies" name="Search" id="movieName">
+                    <button type="submit" id="submitButton"><i class="fa fa-search"></i></button>
+                </div>
+            </li>          
+            </ul>
+          </nav>
+
+        </div>
+    </header>
+
+    <div class="searchResults"></div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

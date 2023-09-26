@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Management</title>
+    <link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        body {
+            overflow: hidden;
+        }
+        
+        .inputForm {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+}
+
+.getMovieDetails {
+    background-image: linear-gradient(rgb(4, 222, 255), rgb(57, 126, 168));
+    display: grid;
+    gap: 10px;
+    text-align: center;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.getMovieDetails label {
+    font-weight: bold;
+}
+
+.getMovieDetails input[type="text"] {
+    padding: 5px;
+    width: 300px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.getMovieDetails button[type="submit"] {
+    margin-left: 100px;
+    padding: 8px 20px;
+    width: 100px;
+    background-image: linear-gradient(to left, blue, rgb(14, 89, 195));
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-image 0.5s ease;
+}
+
+.getMovieDetails button[type="submit"]:hover{
+    background-image: linear-gradient(to right, rgb(161, 3, 101),rgb(186, 3, 113));
+}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="assets/logo.png" alt="Logo">
+                </a>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="addMovie.html">Add Movie</a></li>
+                    <li class="searchBar">
+                        <div class="inputContainer">
+                            <input type="text" placeholder="Search for Movies" name="Search">
+                            <button id="btn" type="submit"><i class="fa fa-search"></i></button>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <div class="inputForm">
+        <form class="getMovieDetails" id="movieForm" action="/save" method="POST">
+            <label for="title">Title:</label>
+            <input type="text" placeholder="Title of movie" id="title" name="title" required><br>
+
+            <label for="genre">Genre:</label>
+            <input type="text" placeholder="Type of movie" id="genre" name="genre" required><br>
+
+            <label for="director">Director:</label>
+            <input type="text" placeholder="director of movie" id="director" name="director" required><br>
+
+            <label for="releaseYear">Release Year:</label>
+            <input type="text" placeholder="release date of movie only year" id="releaseYear" name="releaseYear" required><br>
+
+            <button type="submit" id="btn">Submit</button>
+        </form>
+    </div>
+
+    <script>
+const form = document.querySelector('form');
+form.addEventListener("submit", event => {
+    event.preventDefault();
+
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData);
+
+    fetch("http://localhost:3000/movies", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(movie => {
+        //Clear form fields
+        form.reset();
+        alert("Movie added Successfully!!");
+    });
+});
+    </script>
+</body>
+</html>
