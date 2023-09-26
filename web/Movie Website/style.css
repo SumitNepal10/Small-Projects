@@ -1,0 +1,118 @@
+body {
+  background-image: linear-gradient(to right, rgb(13,13,13),rgb(15,15,15),rgb(32, 31, 31),rgb(7,7,7),rgb(10,10,10),rgb(8,8,8));
+  overflow-x: hidden;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#loader {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100px;
+  height: 100px;
+}
+
+.searchResults {
+  width: calc(25% - 10px); 
+  margin-right: 10px; 
+  margin-bottom: 20px;
+  border-radius: 10px;
+  background-image: linear-gradient(#320085, #a000a7);
+  height: 600px;
+  float: left;
+}
+
+.searchResults:nth-child(4n) {
+  margin-right: 0; 
+}
+
+.searchResults img {
+  margin-left: 22px;
+  height: 440px;
+  width: 300px;
+}
+
+.searchResults button {
+  margin-left: 120px;
+}
+
+.searchResults h1 {
+  margin-left: 5px;
+}
+
+.searchResults * {
+  font-size: 13px;
+  color: white;
+}
+
+
+.searchbar {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.input-container input[type="text"] {
+  width: 300px;
+  padding: 8px;
+  margin-top: 8px;
+  font-size: 16px;
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.searchbar button {
+  padding: 8px 12px;
+  margin-left: 8px;
+  background: #dcc4c4;
+  font-size: 16px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.searchResults {
+  border-radius: 10px;
+  margin-left: 10px;
+  background-image: linear-gradient(#320085, #a000a7);
+  width: 350px;
+  height: 600px;
+  margin-bottom: 20px;
+}
+
+.searchResults img {
+  margin-left: 22px;
+}
+
+.searchResults button {
+  margin-left: 120px;
+  padding: 10px 10px;
+  background: linear-gradient(to right, blue, red);
+  background-size: 200% auto;
+  background-position: 100% 50%;
+  font-size: 16px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-position 0.6s ease;
+}
+
+.searchResults button:hover {
+  background-position: 0% 50%;
+}
+
+.searchResults h1 {
+  margin-left: 5px;
+}
+
+.searchResults * {
+  font-size: 13px;
+  color: white;
+}
+
+.noMoviesFound {
+  color: white;
+}
