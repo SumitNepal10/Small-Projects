@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Interest Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+
+<body>
+    <p></p>
+    <div class="maindiv">
+        <h1>Simple Interest Calculator</h1>
+
+        Amount <input type="number"  id="principal">  <br>
+        Rate <input type="range"  id="rate" min="1" max="20" value="10.25" step="0.25" onchange="updateRate()"> 
+        <span id="rate_val">10.25</span>%<br>
+
+        No. of Years <select id="years">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+          </select><br>
+
+        Interest : <span id="result"></span><br>
+
+        <button onclick="compute()" id = "button">Compute Interest</button>
+        <span id="result"></span>
+    </div>
+</body>
+
+<footer>
+    <p class = "copyright">&copy;Sumit Nepal. All Rights Reserved</p>
+</footer>
+</html>
