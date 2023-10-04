@@ -4,8 +4,6 @@ This is a nought and cross game where user plays against the computer
 import json
 import random
 
-random.seed()
-
 
 def draw_board(board):
     """
@@ -72,7 +70,8 @@ def get_player_move(board):
         try:
             # prompt user where they want to put the X
             print("\n.............................................................")
-            user = int(input("Choose your square:\n 1 2 3 \n 4 5 6 \n 7 8 9 : "))
+            user = int(
+                input("Choose your square:\n 1 2 3 \n 4 5 6 \n 7 8 9 : "))
             # check if user has entered valid cell or not
             if not ((user > 0) and (user < 10)):
                 print("number should be between 1 to 9")
@@ -169,7 +168,7 @@ def check_for_draw(board):
                 return False
         return True
 
-    # catch error in case of any 
+    # catch error in case of any
     except Exception as error:
         print(f"Error:{error}")
 
@@ -291,7 +290,7 @@ def save_score(score):
     print("|-----------------------|")
     name = input("Enter your name: ")
     print("|-----------------------|")
-    
+
     # initialize an empty list to save player name and score
     data = []
 

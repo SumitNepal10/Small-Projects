@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -63,6 +64,7 @@
     </style>
 
 </head>
+
 <body>
     <form method="post" action="register.php">
         <div id="form_page">
@@ -90,4 +92,5 @@
         </div>
     </form>
 </body>
+
 </html>

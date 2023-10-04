@@ -9,58 +9,58 @@ document.addEventListener("DOMContentLoaded", () => {
   // Retrieve tasks from local storage if they exist
   const storedTasks = localStorage.getItem("tasks");
   if (storedTasks) {
-      tasks = JSON.parse(storedTasks);
+    tasks = JSON.parse(storedTasks);
   }
 
   // function to add task in local storage
   function saveTasks() {
-      localStorage.setItem("tasks", JSON.stringify(tasks));
+    localStorage.setItem("tasks", JSON.stringify(tasks));
   }
 
   // function to display the task
   function displayTasks() {
-      alltask.innerHTML = "";
+    alltask.innerHTML = "";
 
-      tasks.forEach((task, index) => {
-          const li = document.createElement("li");
-          li.innerHTML = `
+    tasks.forEach((task, index) => {
+      const li = document.createElement("li");
+      li.innerHTML = `
               <div class="${task.completed ? "completed" : ""}">
                   <span class="task-text">${task.name}</span>
                   <button class="complete">Complete</button>
                   <button class="delete">Remove</button>
               </div>`;
-          
-          li.querySelector(".delete").addEventListener("click", () => {
-              tasks.splice(index, 1);
-              saveTasks();
-              displayTasks();
-          });
 
-          li.querySelector(".complete").addEventListener("click", () => {
-              task.completed = !task.completed;
-              saveTasks();
-              displayTasks();
-          });
-
-          alltask.appendChild(li);
+      li.querySelector(".delete").addEventListener("click", () => {
+        tasks.splice(index, 1);
+        saveTasks();
+        displayTasks();
       });
+
+      li.querySelector(".complete").addEventListener("click", () => {
+        task.completed = !task.completed;
+        saveTasks();
+        displayTasks();
+      });
+
+      alltask.appendChild(li);
+    });
   }
 
   // function to get and save the task
   addBtn.addEventListener("click", () => {
-      const taskName = taskValue.value.trim();
+    const taskName = taskValue.value.trim();
 
-      if (taskName === "") {
-          // if task is empty throw alert
-          window.alert("Task cannot be empty");
-      } else {
-          // else add the task in the local storage
-          const newTask = { name: taskName, completed: false };
-          tasks.push(newTask); // push the new task to array
-          saveTasks();
-          displayTasks();
-          taskValue.value = ""; // clear the input field
-      }
+    if (taskName === "") {
+      // if task is empty throw alert
+      window.alert("Task cannot be empty");
+    } else {
+      // else add the task in the local storage
+      const newTask = { name: taskName, completed: false };
+      tasks.push(newTask); // push the new task to array
+      saveTasks();
+      displayTasks();
+      taskValue.value = ""; // clear the input field
+    }
   });
 
   // Initial display of tasks

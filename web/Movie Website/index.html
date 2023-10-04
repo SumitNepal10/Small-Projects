@@ -1,29 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Movie website</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
     <script src="script.js"></script>
-    <link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon">
-</head>
+    <link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon" />
+  </head>
 
-<body>
+  <body>
     <div id="loader">
-      <img src="assets/loader.gif" alt="loader">
+      <img src="assets/loader.gif" alt="loader" />
     </div>
-    
+
     <div class="searchbar">
-        <div class="input-container">
-            <input type="text" placeholder="Search for movies" id="movieName" name="search">
-            <button type="submit"><i class="fa fa-search"></i></button>
-        </div> 
-    </div>  
-
-    <div id="searchResults">
+      <div class="input-container">
+        <input
+          type="text"
+          placeholder="Search for movies"
+          id="movieName"
+          name="search"
+        />
+        <button type="submit"><i class="fa fa-search"></i></button>
+      </div>
     </div>
 
-</body>
+    <div id="searchResults"></div>
+  </body>
 </html>

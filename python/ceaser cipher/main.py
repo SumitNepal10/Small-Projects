@@ -22,7 +22,8 @@ def encrypt(message, shift_number):
         else:
             # shift character to right by the given shift number
             new_index = (alphabets.index(message[i]) + shift_number) % 26
-            message[i] = alphabets[new_index]  # append new character of shifted position
+            # append new character of shifted position
+            message[i] = alphabets[new_index]
 
     encrypted_message = "".join(message)  # join the message in single line
     return encrypted_message
@@ -44,7 +45,8 @@ def decrypt(message, shift_number):
         else:
             # shift character to left by the given shift number
             new_index = (alphabets.index(message[i]) - shift_number) % 26
-            message[i] = alphabets[new_index]  # append new character of shifted position
+            # append new character of shifted position
+            message[i] = alphabets[new_index]
 
     decrypted_message = "".join(message)  # join the message in single line
     return decrypted_message
@@ -72,7 +74,7 @@ def process_file(filename, mode):
     if mode == "e":
         encrypted_message = ""  # initialize encrypted message
 
-        # iterate through each line in message    
+        # iterate through each line in message
         for line in message:
             line = line.upper()
 
@@ -81,7 +83,8 @@ def process_file(filename, mode):
                 # if character is alphabet encrypt it by calling encrypt function
                 if char.isalpha():
                     encrypted_character = encrypt(char, shift_number)
-                    encrypted_message += encrypted_character  # add encrypted character in encrypted message
+                    # add encrypted character in encrypted message
+                    encrypted_message += encrypted_character
                 else:
                     # if character is non alphabet add as it is
                     encrypted_message += char
@@ -91,7 +94,7 @@ def process_file(filename, mode):
     else:
         decrypted_message = ""  # initialize decrypted message
 
-        # iterate through each line in message    
+        # iterate through each line in message
         for line in message:
             line = line.upper()
 
@@ -100,7 +103,8 @@ def process_file(filename, mode):
                 # if character is alphabet encrypt it by calling decrypt function
                 if char.isalpha():
                     decrypted_character = decrypt(char, shift_number)
-                    decrypted_message += decrypted_character  # add decrypted character in decrypted message
+                    # add decrypted character in decrypted message
+                    decrypted_message += decrypted_character
                 else:
                     # if character is non alphabet add as it is
                     decrypted_message += char
@@ -116,15 +120,16 @@ def is_file(filename):
 
     except FileNotFoundError:
         file_found = not file_found  # return false if file not found
-    
+
     except PermissionError:
         file_found = not file_found  # return false if file permission is not allowed
-    
+
     except IOError:
         file_found = not file_found  # return false if there is problem with reading file
 
     except Exception as e:
-        print(f"unknown error{e}")  # if any other problem arises display the error
+        # if any other problem arises display the error
+        print(f"unknown error{e}")
 
     # return file_found
     return file_found
@@ -162,7 +167,8 @@ def enter_message():
 
     # prompt user to ask where they want to read file
     while True:
-        console_or_file = str(input("Would you like to read from a file (f) or the console (c)?"))
+        console_or_file = str(
+            input("Would you like to read from a file (f) or the console (c)?"))
         if console_or_file != "f" and console_or_file != "c":
             continue
         else:
@@ -170,17 +176,19 @@ def enter_message():
     if console_or_file == "f":
         message = ""
         shift_number = ""
-    # prompt user for message to encrypt or decrypt according to mode selected by user 
+    # prompt user for message to encrypt or decrypt according to mode selected by user
     if mode == "e" and console_or_file == "c":
         while True:
-            message = input("What message would you like to encrypt: ").upper()  # prompt user for input
+            # prompt user for input
+            message = input("What message would you like to encrypt: ").upper()
             if all(char.isalpha() or char.isspace() for char in
                    message):  # check if user input contains any non alphabet
                 break  # break the loop if all character is alphabet
 
     elif mode == "d" and console_or_file == "c":
         while True:
-            message = input("What message would you like to decrypt: ").upper()  # prompt user for input
+            # prompt user for input
+            message = input("What message would you like to decrypt: ").upper()
             if all(char.isalpha() or char.isspace() for char in
                    message):  # check if user input contains any non alphabet
                 break  # break the loop if all character is alphabet
@@ -203,7 +211,7 @@ def enter_message():
     return mode, message, shift_number, console_or_file
 
 
-# define main function 
+# define main function
 def main():
     # call the welcome function
     welcome()
@@ -229,15 +237,17 @@ def main():
 
         while True:
             # ask user if they want to encrypt or decrypt another message
-            user = str(input("Would you like to encrypt or decrypt another message? (y/n): "))
+            user = str(
+                input("Would you like to encrypt or decrypt another message? (y/n): "))
             if user == "y" or user == "n":  # check if user input is valid
-                break  
+                break
             else:
                 continue  # if user input is not valid prompt again for input
 
         if user == "n":  # terminate the program if user input is n
             print("Thanks for using the program, goodbye!")
             break
+
 
 # call the main function to run the program
 main()
